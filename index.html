@@ -10,10 +10,14 @@
       integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
       crossorigin="anonymous"
     />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
     <title>e-comerce</title>
   </head>
   <body>
-    <div class="container-fluid">
+    <div class="container-fluid p-0" style="min-width: 400px">
       <div class="nav-container w-100 bg-dark">
         <nav
           class="navbar navbar-expand-md navbar-dark bg-dark justify-content-between pr-5 pl-5"
@@ -36,23 +40,11 @@
           >
             <form class="form-inline">
               <div class="basket d-inline-flex align-items-center">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="16"
-                  height="16"
-                  fill="gray"
-                  class="bi bi-cart-fill"
-                  viewBox="0 0 16 16"
-                >
-                  <path
-                    d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"
-                  />
-                </svg>
                 <button
                   class="btn bg-transparent text-secondary pl-1"
                   type="button"
                 >
-                  Canasta
+                  <span class="fa fa-shopping-cart mr-1"></span>Canasta
                 </button>
               </div>
               <button class="btn btn- btn-outline-light" type="button">
@@ -70,23 +62,12 @@
                 type="text"
                 class="form-control"
                 placeholder="Buscar camisetas"
-                aria-label="Recipient's username"
+                aria-label="Buscador"
                 aria-describedby="basic-addon2"
               />
               <div class="input-group-append">
                 <button class="btn input-group-text" type="button">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="16"
-                    height="16"
-                    fill="black"
-                    class="bi bi-search"
-                    viewBox="0 0 16 16"
-                  >
-                    <path
-                      d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"
-                    />
-                  </svg>
+                  <span class="fa fa-search"></span>
                 </button>
               </div>
             </div>
@@ -274,23 +255,169 @@
                 <div class="card-body">
                   <h5 class="card-title">Hipster Ultimate</h5>
                   <p class="card-text">La camiseta ideal para hipsters.</p>
-                  <a
-                    href="#"
-                    class="btn btn-primary font-weight-bold d-inline-flex align-items-center"
-                    >$229
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="16"
-                      height="16"
-                      fill="white"
-                      class="bi bi-cart-fill"
-                      viewBox="0 0 16 16"
-                    >
-                      <path
-                        d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"
-                      />
-                    </svg>
-                  </a>
+                  <button
+                    type="button"
+                    class="btn btn-primary"
+                    data-toggle="modal"
+                    data-target="#buyModal"
+                  >
+                    $229
+                    <span class="fa fa-shopping-cart"></span>
+                  </button>
+                  <div
+                    class="modal fade"
+                    id="buyModal"
+                    tabindex="-1"
+                    role="dialog"
+                    aria-labelledby="buyModal"
+                    aria-hidden="true"
+                  >
+                    <div class="modal-dialog" role="document">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h5 class="modal-title" id="modalTitle">
+                            Hipster Ultimate
+                          </h5>
+                          <button
+                            type="button"
+                            class="close"
+                            data-dismiss="modal"
+                            aria-label="Close"
+                          >
+                            <span aria-hidden="true">&times;</span>
+                          </button>
+                        </div>
+                        <div class="modal-body">
+                          <div class="container-fluid">
+                            <div class="row" id="stock">
+                              <div class="col-12 p-0">
+                                <div
+                                  class="alert alert-primary d-flex align-items-center"
+                                  role="alert"
+                                >
+                                  <span class="fa fa-shopping-cart"></span>
+                                  Este producto está agotado
+                                </div>
+                              </div>
+                            </div>
+                            <div class="row pb-4">
+                              <div class="card col-6">
+                                <img
+                                  class="card-img border-dark"
+                                  src="/images/camiseta-1.jpg"
+                                />
+                              </div>
+                              <div class="col-6">
+                                <p>Precio: <strong>299</strong></p>
+                                <p>
+                                  Calificación: <span class="fa fa-star"></span>
+                                  <span class="fa fa-star"></span>
+                                  <span class="fa fa-star"></span>
+                                  <span class="fa fa-star"></span>
+                                  <span class="fa fa-star-o"></span>
+                                </p>
+                                <p>
+                                  <span class="badge badge-warning"
+                                    >Hipster</span
+                                  >
+                                  <span class="badge badge-secondary"
+                                    >Deportiva</span
+                                  >
+                                </p>
+                                <p class="text-primary">
+                                  <span class="fa fa-heart pr-1"></span>Agregar
+                                  a los deseos
+                                </p>
+                              </div>
+                            </div>
+                            <div class="row">
+                              <div class="col-12">
+                                <ul
+                                  class="nav nav-tabs"
+                                  id="myTab"
+                                  role="tablist"
+                                >
+                                  <li class="nav-item">
+                                    <a
+                                      class="nav-link active"
+                                      id="descripcion-tab"
+                                      data-toggle="tab"
+                                      href="#descripcion"
+                                      role="tab"
+                                      aria-controls="descripcion"
+                                      aria-selected="true"
+                                      >Descripción</a
+                                    >
+                                  </li>
+                                  <li class="nav-item">
+                                    <a
+                                      class="nav-link"
+                                      id="comentarios-tab"
+                                      data-toggle="tab"
+                                      href="#comentarios"
+                                      role="tab"
+                                      aria-controls="comentarios"
+                                      aria-selected="false"
+                                      >Comentarios</a
+                                    >
+                                  </li>
+                                </ul>
+                                <div class="tab-content" id="myTabContent">
+                                  <div
+                                    class="tab-pane fade show active"
+                                    id="descripcion"
+                                    role="tabpanel"
+                                    aria-labelledby="descripcion-tab"
+                                  >
+                                    Lorem ipsum dolor sit amet consectetur
+                                    adipisicing elit. Consequatur consequuntur
+                                    aliquam officiis reiciendis. Hic nam ipsa
+                                    eum, saepe doloribus dignissimos!
+                                    Consectetur numquam veniam aliquid qui
+                                    obcaecati quas quam modi dolorum.
+                                  </div>
+                                  <div
+                                    class="tab-pane fade"
+                                    id="comentarios"
+                                    role="tabpanel"
+                                    aria-labelledby="comentarios-tab"
+                                  >
+                                    <div class="card mb-3">
+                                      <div class="card-header">
+                                        Germán Escobar comentó hace dos días
+                                      </div>
+                                      <div class="card-body">
+                                        Esta camiseta está increíble, la quiero!
+                                      </div>
+                                    </div>
+                                    <textarea
+                                      name="ingComentario"
+                                      id="ingComentario"
+                                      rows="3"
+                                      class="form-control"
+                                      placeholder="Ingresa tu comentario"
+                                    ></textarea>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="modal-footer">
+                          <button
+                            type="button"
+                            class="btn btn-secondary"
+                            data-dismiss="modal"
+                          >
+                            Cerrar
+                          </button>
+                          <button type="button" class="btn btn-primary">
+                            Comprar
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                   <a
                     href="#"
                     class="btn btn-outline-secondary font-weight-bold d-inline-flex align-items-center"
@@ -313,18 +440,7 @@
                     href="#"
                     class="btn btn-primary font-weight-bold d-inline-flex align-items-center"
                     >$229
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="16"
-                      height="16"
-                      fill="white"
-                      class="bi bi-cart-fill"
-                      viewBox="0 0 16 16"
-                    >
-                      <path
-                        d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"
-                      />
-                    </svg>
+                    <span class="fa fa-shopping-cart"></span>
                   </a>
                   <a
                     href="#"
@@ -348,18 +464,7 @@
                     href="#"
                     class="btn btn-primary font-weight-bold d-inline-flex align-items-center"
                     >$229
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="16"
-                      height="16"
-                      fill="white"
-                      class="bi bi-cart-fill"
-                      viewBox="0 0 16 16"
-                    >
-                      <path
-                        d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"
-                      />
-                    </svg>
+                    <span class="fa fa-shopping-cart"></span>
                   </a>
                   <a
                     href="#"
@@ -385,18 +490,7 @@
                     href="#"
                     class="btn btn-primary font-weight-bold d-inline-flex align-items-center"
                     >$229
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="16"
-                      height="16"
-                      fill="white"
-                      class="bi bi-cart-fill"
-                      viewBox="0 0 16 16"
-                    >
-                      <path
-                        d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"
-                      />
-                    </svg>
+                    <span class="fa fa-shopping-cart"></span>
                   </a>
                   <a
                     href="#"
@@ -422,18 +516,7 @@
                     href="#"
                     class="btn btn-primary font-weight-bold d-inline-flex align-items-center"
                     >$229
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="16"
-                      height="16"
-                      fill="white"
-                      class="bi bi-cart-fill"
-                      viewBox="0 0 16 16"
-                    >
-                      <path
-                        d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"
-                      />
-                    </svg>
+                    <span class="fa fa-shopping-cart"></span>
                   </a>
                   <a
                     href="#"
@@ -456,19 +539,7 @@
                   <a
                     href="#"
                     class="btn btn-primary font-weight-bold d-inline-flex align-items-center"
-                    >$229
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="16"
-                      height="16"
-                      fill="white"
-                      class="bi bi-cart-fill"
-                      viewBox="0 0 16 16"
-                    >
-                      <path
-                        d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"
-                      />
-                    </svg>
+                    >$229 <span class="fa fa-shopping-cart"></span>
                   </a>
                   <a
                     href="#"
